@@ -1,0 +1,23 @@
+{
+  "name": "mikita_siadykh",
+  "version": "1.0.0",
+  "description": "babel task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./task1/js --out-dir ./task2/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaSedyx/NikitaSedyx.github.io.git"
+  },
+  "author": "mikita_siadykh@epam.com",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-preset-es2015": "6.18.0"
+  },
+  "dependencies": {
+    "whatwg-fetch": "2.0.1"
+  }
+}
