@@ -1,8 +1,9 @@
 'use strict';
-const newsApi = 'https://newsapi.org/v1/';
-const apiKey = 'b6fe1b1282f6405aae8087563e902c75';
 
-const categories = [
+export const NEWS_API = 'https://newsapi.org/v1/';
+export const API_KEY = 'b6fe1b1282f6405aae8087563e902c75';
+
+export const CATEGORIES = [
 	{
 		name: 'all',
 		code: ''
@@ -35,4 +36,4 @@ const categories = [
 		name: 'technology',
 		code: 'technology'
 	}
-];
+]

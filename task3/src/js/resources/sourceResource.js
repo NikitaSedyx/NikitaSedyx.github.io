@@ -1,4 +1,8 @@
-class SourceResource extends BaseResource {
+'use strict';
+
+import BaseResource from './baseResource';
+
+export default class SourceResource extends BaseResource {
 	constructor() {
 		super('sources');
 	}

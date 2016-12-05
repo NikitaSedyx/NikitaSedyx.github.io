@@ -1,0 +1,41 @@
+*
+  box-sizing: border-box
+
+.clearfix:before
+  content: " "
+  display: table
+
+.clearfix:after
+  content: " "
+  display: table
+  clear: both
+
+html, body
+  margin: 0
+  padding: 0
+  height: 100%
+  
+  .content
+    min-height: 100%
+    padding-bottom: 50px
+    
+    header
+      height: 50px
+      background: $cyan-header-background
+      color: $cyan-header-color
+      
+      h2
+        margin: 0
+        line-height: 50px
+        padding-left: 20px
+  
+  footer
+    margin-top: -30px
+    height: 30px
+    text-align: center
+    background: $cyan-footer-background
+
+    a
+      color: $cyan-footer-color
+      line-height: 30px
+      text-decoration: none

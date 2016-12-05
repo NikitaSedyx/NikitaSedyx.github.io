@@ -1,0 +1,10 @@
+aside(
+	class="categories-container #{className}"
+	id=id
+)
+	ul.categories
+		each category in categories
+			li(
+				data-code=category.code
+				class="category #{category.code == activeCategory ? 'active': ''}"
+			)= category.name
