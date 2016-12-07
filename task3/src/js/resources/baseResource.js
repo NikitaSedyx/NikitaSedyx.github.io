@@ -19,7 +19,8 @@ export default class BaseResource {
 	}
 
 	load(params) {
-		let requestUrl = this.buldRequestUrl(params);
+		// command
+		let requestUrl = this.execute('buldRequestUrl', params)
 		let successCb = response => {
 			if (response.ok) {
 				return response.json();
@@ -28,5 +29,9 @@ export default class BaseResource {
 			}
 		}
 		return fetch(requestUrl).then(successCb);
+	}
+
+	execute(command, ...params) {
+		return this[command] && this[command](...params)
 	}
 }

@@ -2,7 +2,7 @@
 
 import LoadButton from './js/loadButton/loadButton.js';
 
-;(function(){
+;const module = (function(){
 	const ROUTE = document.querySelector('#route');
 
 	const drawContent = function(content) {
@@ -36,5 +36,8 @@ import LoadButton from './js/loadButton/loadButton.js';
 			loadArticles();
 		}, 'news');
 	});
-
+	return {
+		ROUTE: ROUTE,
+		drawContent: drawContent
+	};
 })()

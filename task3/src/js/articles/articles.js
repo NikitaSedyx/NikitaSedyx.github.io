@@ -1,7 +1,7 @@
 'use strict';
 
-import SourceResource from '../resources/sourceResource';
-import ArticleResource from '../resources/articleResource';
+import ResourceFactory from '../resources/resourceFactory';
+import SourceResourceDecorator from '../resources/sourceResourceDecorator';
 import articlesTemplate from './articles.pug';
 
 export default class Articles {
@@ -13,9 +13,12 @@ export default class Articles {
 		return articlesTemplate(this);
 	}
 
+	// imo it's facade
 	getArticles(category) {
-		let sourceResource = new SourceResource();
-		let articleResource = new ArticleResource();
+		let sourceResource = ResourceFactory.getResource('source');
+		let sourceResourceDecorator = new SourceResourceDecorator(sourceResource);
+		sourceResourceDecorator.load(category);
+		let articleResource = ResourceFactory.getResource('article');
 
 		return sourceResource.load(category)
 			.then(sources => {
