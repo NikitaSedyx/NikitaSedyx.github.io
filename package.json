@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./task1/js --out-dir ./task2/js"
+    "build": "babel ./task1/js --out-dir ./task2/js",
+    "webpack-build": "webpack",
+    "static-server": "static &",
+    "wp-server": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -15,7 +18,19 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "6.18.0",
-    "babel-preset-es2015": "6.18.0"
+    "babel-loader": "6.2.8",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "6.18.0",
+    "css-loader": "0.26.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "node-sass": "3.13.0",
+    "node-static": "0.7.9",
+    "pug": "2.0.0-beta6",
+    "pug-loader": ".3.0",
+    "sass-loader": "4.0.2",
+    "style-loader": "0.13.1",
+    "webpack": "1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "whatwg-fetch": "2.0.1"

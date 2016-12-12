@@ -1,0 +1,14 @@
+main.articles
+	each article in articles
+		article
+			div
+				h4= article.title
+			div
+				img(
+					src=article.urlToImage
+					alt=article.title
+				)
+				p= article.description
+			div
+				time= new Date(publishedAt).toDateString()
+			.clearfix
