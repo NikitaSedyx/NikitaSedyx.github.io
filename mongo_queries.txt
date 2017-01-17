@@ -1,0 +1,142 @@
+mongodump -h ds133348.mlab.com:33348/heroku_x4cvh20w  -u login -p pass -o d:\ --gzip
+
+db.createCollection("authors");
+db.createCollection("tags");
+db.createCollection("articles");
+
+db.authors.findOneAndDelete({"name": /^Mikita.*/})
+
+db.articles.insertMany([
+  {
+    "title": "Title 1",
+    "created_at": new Date(),
+    "updated_at": new Date(),
+    "author": "supernickname1",
+    "tags": [2],
+    "likes": 0,
+    "article": "it's reaaly big text 1",
+    "comments": [
+      {
+        "first_name": "John",
+        "last_name": "Round",
+        "message": "very cool"
+      }
+    ]
+  },
+  {
+    "title": "Title 2",
+    "created_at": new Date("2016-12-06"),
+    "updated_at": new Date("2016-12-06"),
+    "author": "supernickname2",
+    "tags": [1, 2, 3],
+    "likes": 145,
+    "article": "it's reaaly big text 2",
+    "comments": [
+      {
+        "first_name": "Bon",
+        "last_name": "Senior",
+        "message": "very very cool"
+      },
+      {
+        "first_name": "Bonana",
+        "last_name": "Mamba",
+        "message": "mmm, tasty!"
+      }
+    ]
+  },
+  {
+    "title": "Title 3",
+    "created_at": new Date("2016-02-15"),
+    "updated_at": new Date("2016-09-28"),
+    "author": "supernickname3",
+    "tags": [2],
+    "likes": 1568,
+    "article": "it's reaaly big text 3",
+    "comments": [
+      {
+        "first_name": "Jonatan",
+        "last_name": "Bound",
+        "message": "very cool, very"
+      },
+      {
+        "first_name": "Mark",
+        "last_name": "Bounce",
+        "message": "very very"
+      },
+      {
+        "first_name": "Yuri",
+        "last_name": "Haharin",
+        "message": "Let's go"
+      }
+    ]
+  }
+])
+
+db.tags.insertMany([
+  {
+    "_id": 1,
+    "name": "tag 1"
+  },
+  {
+    "_id": 2,
+    "name": "tag 2"
+  },
+  {
+    "_id": 3,
+    "name": "tag 3"
+  }
+])
+
+db.articles.aggregate([
+   {
+      $unwind: "$tags"
+   }
+])
+
+db.articles.aggregate([
+   {
+      $unwind: "$tags"
+   },
+   {
+      $lookup:
+         {
+            from: "tags",
+            localField: "tags",
+            foreignField: "_id",
+            as: "tag_descriptions"
+        }
+   },
+   {
+      $match: {tag_descriptions: {$elemMatch: {name: "tag 3"}}}
+   }
+])
+
+db.articles.deleteMany({likes: {$lt: 100}});
+
+
+
+db.articles.createIndex({likes: 1});
+db.tags.createIndex({name: "text"});
+
+
+mongoimport -h ds133348.mlab.com:33348/heroku_x4cvh20w -c grades -u login -p pass --file grades.json
+
+db.grades.aggregate([
+    {$unwind: "$scores"},
+    {$match: {"scores.type": {$ne: "quiz"}}},
+    {$group: {
+        _id: {
+            student_id: "$student_id",
+            class_id: "$class_id"
+        },
+        student_avg: {$avg: "$scores.score"}
+    }},
+    {$group: {
+        _id: "$_id.class_id", 
+        class_avg: {$avg: "$student_avg"}
+    }},
+    {$sort: {"class_avg": -1}},
+    {$limit: 1}
+])
+
+
