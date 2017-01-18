@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <div className='app_container'>
         <Navigation></Navigation>
-        {this.props.children}
+        {this.props.children ? this.props.children : 'Hello World!'}
       </div>
     );
   }
