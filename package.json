@@ -33,6 +33,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "angular": "1.6.1",
     "whatwg-fetch": "2.0.1"
   }
 }

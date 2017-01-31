@@ -1,0 +1,5 @@
+<h1>Topic list</h1>
+<div class="topics">
+  <topic ng-repeat="topic in topicListCtrl.topicList", topic="topic"></topic>
+</div>
+<paginator page="topicListCtrl.currentPage", total-count="topicListCtrl.topicCount", per-page="topicListCtrl.topicPerPage", on-page-change="topicListCtrl.onPageChange(page)"></paginator>
