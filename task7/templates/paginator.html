@@ -1,0 +1,8 @@
+<a ng-repeat="page in paginatorCtrl.pages", ng-click="paginatorCtrl.onPageChange({page})">
+  <span ng-if="page == paginatorCtrl.page">
+    <b>{{page}}</b>
+  </span>
+  <span ng-if="page != paginatorCtrl.page">
+    {{page}}
+  </span>
+</a>
