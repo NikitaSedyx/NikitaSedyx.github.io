@@ -5,25 +5,16 @@ const PROD_ENV = 'prod';
 const ENV = process.env.NODE_ENV || DEV_ENV;
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-let extractCssTextPlugin = 'css!sass';
-if (ENV == PROD_ENV) {
-  extractCssTextPlugin = 'css?minimize!sass';
-}
 
 module.exports = {
-		context: `${__dirname}/task3/src`,
+		context: `${__dirname}/task7/src`,
 		entry: {
-		  index: './index',
-			common: ['./js/constants/constants'],
-      styles: './styles/main.sass'
+		  index: './index'
 		},
     output: {
-      path: `${__dirname}/task3/dist/js`,
-      publicPath: '/task3/dist/js/',
-      filename: '[name].js',
-      library: '[name]'
+      path: `${__dirname}/task7/dist`,
+      publicPath: '/task7/dist',
+      filename: '[name].js'
     },
 
     watch: ENV == DEV_ENV,
@@ -35,24 +26,13 @@ module.exports = {
     	loaders: [
     		{
 	    		test: /\.js?$/,
-          include: `${__dirname}/task3/src`,
+          include: [`${__dirname}/task7/src`, `${__dirname}/task7/index.spec.js`],
 	    		loader: 'babel-loader',
 		      query: {
 		        presets: ['es2015'],
             plugins: ['add-module-exports']
 		      }
-    		},
-        {
-          test: /\.pug?$/,
-          include: `${__dirname}/task3/src`,
-          loader: 'pug-loader'
-        },
-        {
-          test: /\.sass?$/,
-          include: `${__dirname}/task3/src`,
-          loader: ExtractTextPlugin.extract('style' , extractCssTextPlugin)
-        }
-        // it can be file/url loader, but no static files
+    		}
     	]
     },
 
@@ -60,20 +40,8 @@ module.exports = {
       new webpack.NoErrorsPlugin(),
       new webpack.DefinePlugin({
         ENV: JSON.stringify(ENV)
-      }),
-      new webpack.optimize.CommonsChunkPlugin(
-        {
-          name: 'common'
-        }
-      ),
-      new ExtractTextPlugin('../assets/styles/[name].css', {allChunks: true})
+      })
     ],
-
-    devServer: {
-      host: 'localhost',
-      port: 8081,
-      contentBase: `${__dirname}/task3`
-    }
 }
 
 if (ENV == PROD_ENV) {

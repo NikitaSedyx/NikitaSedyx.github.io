@@ -1,3 +1,7 @@
+'use strict';
+
+import angular from 'angular';
+
 angular.module('components', [])
 
   .service('topicResource', function() {
