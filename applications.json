@@ -1,0 +1,293 @@
+[
+  {
+    "id": "app-platform-minimal",
+    "label": "app-platform-minimal",
+    "dependencies": []
+  },
+  {
+    "id": "app-platform-complete",
+    "label": "app-platform-complete",
+    "dependencies": [
+      {
+        "id": "app-platform-minimal"
+      },
+      {
+        "id": "app-acquisitions",
+        "invalidDependency": true,
+        "comment": "There are modules that reference to app-acquisitions, but it is not a dependency of app-platform-complete. This is likely an error in the module definitions."
+      }
+    ]
+  },
+  {
+    "id": "app-acquisitions",
+    "label": "app-acquisitions",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      },
+      {
+        "id": "app-service-interaction",
+        "optional": true,
+        "exists": false
+      }
+    ]
+  },
+  {
+    "id": "app-mosaic",
+    "label": "app-mosaic",
+    "dependencies": [
+      {
+        "id": "app-acquisitions"
+      }
+    ]
+  },
+  {
+    "id": "app-gobi",
+    "label": "app-gobi",
+    "dependencies": [
+      {
+        "id": "app-acquisitions"
+      }
+    ]
+  },
+  {
+    "id": "app-ebsconet",
+    "label": "app-ebsconet",
+    "dependencies": [
+      {
+        "id": "app-acquisitions"
+      }
+    ]
+  },
+  {
+    "id": "app-oai-pmh",
+    "label": "app-oai-pmh",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-fqm",
+    "label": "app-fqm",
+    "dependencies": [
+      {
+        "id": "app-acquisitions",
+        "invalidDependency": true,
+        "comment": "It should be optional dependency"
+      }
+    ]
+  },
+  {
+    "id": "app-oa",
+    "label": "app-oa",
+    "exists": false,
+    "dependencies": [
+      {
+        "id": "app-platform-complete",
+        "exists": false
+      }
+    ]
+  },
+  {
+    "id": "app-licenses",
+    "label": "app-licenses",
+    "exists": false,
+    "dependencies": [
+      {
+        "id": "app-platform-complete",
+        "exists": false
+      },
+      {
+        "id": "app-acquisitions",
+        "exists": false,
+        "optional": true,
+        "invalidDependency": true,
+        "comment": "It should not depend to whole set of acq modules"
+      }
+    ]
+  },
+  {
+    "id": "app-agreements",
+    "label": "app-agreements",
+    "exists": false,
+    "dependencies": [
+      {
+        "id": "app-licenses",
+        "exists": false
+      }
+    ]
+  },
+  {
+    "id": "app-erm-usage",
+    "label": "app-erm-usage",
+    "dependencies": [
+      {
+        "id": "app-agreements",
+        "exists": false
+      },
+      {
+        "id": "app-acquisitions",
+        "invalidDependency": true,
+        "comment": "It should not depend to whole set of acq modules"
+      }
+    ]
+  },
+  {
+    "id": "app-service-interaction",
+    "label": "app-service-interaction",
+    "exists": false,
+    "dependencies": [
+      {
+        "id": "app-platform-minimal",
+        "exists": false
+      }
+    ]
+  },
+  {
+    "id": "app-dashboard",
+    "label": "app-dashboard",
+    "exists": false,
+    "dependencies": [
+      {
+        "id": "app-service-interaction",
+        "exists": false
+      },
+      {
+        "id": "app-licenses",
+        "optional": true,
+        "exists": false
+      },
+      {
+        "id": "app-agreements",
+        "optional": true,
+        "exists": false
+      }
+    ]
+  },
+  {
+    "id": "app-z3950",
+    "label": "app-z3950",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-reporting",
+    "label": "app-reporting",
+    "dependencies": [
+      {
+        "id": "app-platform-minimal"
+      }
+    ]
+  },
+  {
+    "id": "app-bulk-edit",
+    "label": "app-bulk-edit",
+    "dependencies": [
+      {
+        "id": "app-fqm",
+        "invalidDependency": true,
+        "comment": "It should be optional dependency"
+      }
+    ]
+  },
+  {
+    "id": "app-linked-data",
+    "label": "app-linked-data",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-reading-room",
+    "label": "app-reading-room",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-inn-reach",
+    "label": "app-inn-reach",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-dcb",
+    "label": "app-dcb",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-consortia",
+    "label": "app-consortia",
+    "dependencies": [
+      {
+        "id": "app-platform-complete",
+        "invalidDependency": true,
+        "comment": "Should depend on platform-minimal, not platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-consortia-manager",
+    "label": "app-consortia-manager",
+    "dependencies": [
+      {
+        "id": "app-consortia"
+      }
+    ]
+  },
+  {
+    "id": "app-marc-migrations",
+    "label": "app-marc-migrations",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-requests-ecs",
+    "label": "app-requests-ecs",
+    "dependencies": [
+      {
+        "id": "app-dcb"
+      }
+    ]
+  },
+  {
+    "id": "app-requests-mediated",
+    "label": "app-requests-mediated",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
+  },
+  {
+    "id": "app-requests-mediated-ui",
+    "label": "app-requests-mediated-ui",
+    "dependencies": [
+      {
+        "id": "app-requests-mediated"
+      },
+      {
+        "id": "app-requests-ecs"
+      }
+    ]
+  }
+]

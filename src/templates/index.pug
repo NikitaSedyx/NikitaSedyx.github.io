@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    title Network
+    script(type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js")
+    style(type="text/css").
+      #apps_network {
+        margin: auto;
+        width: 1200px;
+        height: 760px;
+        border: 2px solid lightgray;
+      }
+  body
+    div#apps_network
+    script(type="text/javascript").
+      // create an array with nodes
+      var nodes = new vis.DataSet(!{JSON.stringify(apps)});
+
+      // create an array with edges
+      var edges = new vis.DataSet(!{JSON.stringify(dependencies)});
+
+      // create a network
+      var container = document.getElementById("apps_network");
+      var data = {
+        nodes: nodes,
+        edges: edges,
+      };
+
+      var options = {
+        edges: {
+            arrows: {
+            to: { enabled: true, scaleFactor: 1 }
+            }
+        }
+      };
+      var network = new vis.Network(container, data, options);
