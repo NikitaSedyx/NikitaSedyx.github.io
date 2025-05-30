@@ -289,5 +289,23 @@
         "id": "app-requests-ecs"
       }
     ]
+  },
+  {
+    "id": "app-rtac",
+    "label": "app-rtac",
+    "dependencies": [
+      {
+        "id": "app-acquisitions"
+      }
+    ]
+  },
+  {
+    "id": "app-edge-complete",
+    "label": "app-edge-complete",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
+      }
+    ]
   }
 ]
