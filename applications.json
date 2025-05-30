@@ -169,6 +169,7 @@
   {
     "id": "app-z3950",
     "label": "app-z3950",
+    "invalid": true,
     "dependencies": [
       {
         "id": "app-platform-complete"

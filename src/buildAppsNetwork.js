@@ -7,6 +7,7 @@ const apps = require('../applications.json')
   .map(app => ({
     id: app.id,
     label: app.label,
+    ...(app.invalid ? { color: { border: 'red', background: 'red' }, } : {}),
     ...(app.exists === false ? { color: { border: 'grey', background: 'lightgray' }, } : {}),
   }));
 
