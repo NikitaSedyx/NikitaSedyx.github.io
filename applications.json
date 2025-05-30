@@ -85,7 +85,7 @@
     "exists": false,
     "dependencies": [
       {
-        "id": "app-platform-complete",
+        "id": "app-platform-minimal",
         "exists": false
       }
     ]
