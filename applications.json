@@ -24,11 +24,6 @@
     "dependencies": [
       {
         "id": "app-platform-complete"
-      },
-      {
-        "id": "app-service-interaction",
-        "optional": true,
-        "exists": false
       }
     ]
   },
@@ -82,26 +77,21 @@
   {
     "id": "app-oa",
     "label": "app-oa",
-    "exists": false,
     "dependencies": [
       {
-        "id": "app-platform-minimal",
-        "exists": false
+        "id": "app-platform-minimal"
       }
     ]
   },
   {
     "id": "app-licenses",
     "label": "app-licenses",
-    "exists": false,
     "dependencies": [
       {
-        "id": "app-platform-complete",
-        "exists": false
+        "id": "app-platform-minimal"
       },
       {
         "id": "app-acquisitions",
-        "exists": false,
         "optional": true,
         "invalidDependency": true,
         "comment": "It should not depend to whole set of acq modules"
@@ -111,11 +101,9 @@
   {
     "id": "app-agreements",
     "label": "app-agreements",
-    "exists": false,
     "dependencies": [
       {
-        "id": "app-licenses",
-        "exists": false
+        "id": "app-licenses"
       }
     ]
   },
@@ -124,8 +112,7 @@
     "label": "app-erm-usage",
     "dependencies": [
       {
-        "id": "app-agreements",
-        "exists": false
+        "id": "app-agreements"
       },
       {
         "id": "app-acquisitions",
@@ -137,22 +124,18 @@
   {
     "id": "app-service-interaction",
     "label": "app-service-interaction",
-    "exists": false,
     "dependencies": [
       {
-        "id": "app-platform-minimal",
-        "exists": false
+        "id": "app-platform-minimal"
       }
     ]
   },
   {
     "id": "app-dashboard",
     "label": "app-dashboard",
-    "exists": false,
     "dependencies": [
       {
-        "id": "app-service-interaction",
-        "exists": false
+        "id": "app-service-interaction"
       },
       {
         "id": "app-licenses",
@@ -237,9 +220,7 @@
     "label": "app-consortia",
     "dependencies": [
       {
-        "id": "app-platform-complete",
-        "invalidDependency": true,
-        "comment": "Should depend on platform-minimal, not platform-complete"
+        "id": "app-platform-minimal"
       }
     ]
   },
