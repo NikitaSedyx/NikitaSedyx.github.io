@@ -75,6 +75,15 @@
     ]
   },
   {
+    "id": "app-lists",
+    "label": "app-lists",
+    "dependencies": [
+      {
+        "id": "app-fqm"
+      }
+    ]
+  },
+  {
     "id": "app-oa",
     "label": "app-oa",
     "dependencies": [
