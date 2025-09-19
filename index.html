@@ -4,16 +4,95 @@
     <title>Network</title>
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style type="text/css">
+      #main {
+        display: flex;
+        justify-content: center;
+      }
+      
       #apps_network {
-        margin: auto;
         width: 1200px;
         height: 760px;
         border: 2px solid lightgray;
+        border-left: 0;
+      }
+      
+      #legend {
+        width: 200px;
+        height: 760px;
+        border: 2px solid lightgray;
+        border-right: 0;
+        padding: 0 10px;
+      }
+      
+      #legend .legend-list {
+        padding: 0;
+        list-style: none;
+      }
+      
+      #legend .legend-list .legend-section {
+        font-weight: 600;
+        margin: 8px 5px;
+      }
+      
+      #legend .legend-color {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      
+      #legend .legend-color.valid {
+        background: #97c2fc;
+        border: 1px solid #2b7ce8;
+      }
+      
+      #legend .legend-color.invalid {
+        background: red;
+        border: 1px solid red;
+      }
+      
+      #legend .legend-color.planned {
+        background: grey;
+        border: 1px solid lightgray;
+      }
+      
+      #legend .legend-element {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      
+      #legend .legend-element.application {
+        width: 20px;
+        height: 10px;
+        border-radius: 50%;
+        background: #97c2fc;
+        border: 1px solid #2b7ce8;
+      }
+      
+      #legend .label {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 5px;
       }
     </style>
   </head>
   <body>
-    <div id="apps_network"></div>
+    <div id="main">
+      <div id="legend">
+        <h2>Legend</h2>
+        <ul class="legend-list">
+          <li class="legend-section">Color</li>
+          <li><span class="legend-color valid"></span><span class="label">Valid</span></li>
+          <li><span class="legend-color invalid"></span><span class="label">Invalid</span></li>
+          <li><span class="legend-color planned"></span><span class="label">Planned</span></li>
+          <li class="legend-section">Element</li>
+          <li><span class="legend-element application"></span><span class="label">Application</span></li>
+          <li><span class="legend-element required">&#8594;</span><span class="label">Required dependency</span></li>
+          <li><span class="legend-element optional">&#8674;</span><span class="label">Optional dependency</span></li>
+        </ul>
+      </div>
+      <div id="apps_network"></div>
+    </div>
     <script type="text/javascript">
       // create an array with nodes
       var nodes = new vis.DataSet([{"id":"app-platform-minimal","label":"app-platform-minimal"},{"id":"app-platform-complete","label":"app-platform-complete"},{"id":"app-acquisitions","label":"app-acquisitions"},{"id":"app-mosaic","label":"app-mosaic"},{"id":"app-gobi","label":"app-gobi"},{"id":"app-ebsconet","label":"app-ebsconet"},{"id":"app-oai-pmh","label":"app-oai-pmh"},{"id":"app-fqm","label":"app-fqm"},{"id":"app-lists","label":"app-lists"},{"id":"app-oa","label":"app-oa"},{"id":"app-licenses","label":"app-licenses"},{"id":"app-agreements","label":"app-agreements"},{"id":"app-erm-usage","label":"app-erm-usage"},{"id":"app-service-interaction","label":"app-service-interaction"},{"id":"app-dashboard","label":"app-dashboard"},{"id":"app-z3950","label":"app-z3950","color":{"border":"red","background":"red"}},{"id":"app-reporting","label":"app-reporting"},{"id":"app-bulk-edit","label":"app-bulk-edit"},{"id":"app-linked-data","label":"app-linked-data"},{"id":"app-reading-room","label":"app-reading-room"},{"id":"app-inn-reach","label":"app-inn-reach"},{"id":"app-dcb","label":"app-dcb"},{"id":"app-consortia","label":"app-consortia"},{"id":"app-consortia-manager","label":"app-consortia-manager"},{"id":"app-marc-migrations","label":"app-marc-migrations"},{"id":"app-requests-ecs","label":"app-requests-ecs"},{"id":"app-requests-mediated","label":"app-requests-mediated"},{"id":"app-requests-mediated-ui","label":"app-requests-mediated-ui"},{"id":"app-rtac","label":"app-rtac"},{"id":"app-edge-complete","label":"app-edge-complete"}]);
