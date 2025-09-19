@@ -298,5 +298,16 @@
         "id": "app-platform-complete"
       }
     ]
+  },
+  {
+    "id": "app-serials-management",
+    "label": "app-serials-management",
+    "exists": false,
+    "dependencies": [
+      {
+        "id": "app-platform-minimal",
+        "exists": false
+      }
+    ]
   }
 ]
