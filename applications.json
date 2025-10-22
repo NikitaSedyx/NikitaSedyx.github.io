@@ -302,11 +302,18 @@
   {
     "id": "app-serials-management",
     "label": "app-serials-management",
-    "exists": false,
     "dependencies": [
       {
-        "id": "app-platform-minimal",
-        "exists": false
+        "id": "app-platform-minimal"
+      }
+    ]
+  },
+  {
+    "id": "app-data-export",
+    "label": "app-data-export",
+    "dependencies": [
+      {
+        "id": "app-platform-complete"
       }
     ]
   }
